@@ -1,0 +1,98 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+}
+
+button {
+    outline: transparent;
+    border: transparent;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    cursor: pointer;
+}
+
+main {
+    background-color: #efebf9;
+    min-width: 100%;
+    min-height: 100vh;
+    min-height: 100dvh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.counter-wrapper {
+    min-width: 450px;
+    min-height: 300px;
+    border-radius: 24px;
+    padding-block-start: 8px;
+    background-color: #002163;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 32px;
+    position: relative;
+}
+
+.count-value {
+    font-size: clamp(1.5rem, 7vw, 5rem);
+    letter-spacing: 0.125em;
+    color: #fff;
+}
+
+.count-increase-btn {
+    background-color: rgb(99, 147, 139, .8);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 120px;
+    aspect-ratio: 1;
+    border-radius: 24px;
+    transition: background-color 250ms, scale 250ms ease-out;
+}
+
+.count-increase-btn:hover {
+    background-color: #75d1bb;
+}
+
+.count-increase-btn:active {
+    scale: 1.05;
+}
+
+.counter-wrapper:hover {
+    .reset-btn {
+        bottom: 12px;
+        right: 16px;
+        z-index: 1;
+    }
+}
+
+.add-btn {
+    position: absolute;
+
+}
+
+.reset-btn {
+    padding: 4px;
+    border-radius: 6px;
+    background-color: #F95454;
+    position: absolute;
+    bottom: -12px;
+    right: -16px;
+    z-index: -1;
+}
+
+.count-increase-btn svg {
+    width: 36px;
+    height: 36px;
+    fill: #fff;
+}
+
+.reset-btn svg {
+    width: 32px;
+    fill: #F95454;
+}
