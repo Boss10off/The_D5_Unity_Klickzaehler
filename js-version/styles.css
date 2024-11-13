@@ -39,7 +39,7 @@ main {
 }
 
 .count-value {
-    font-size: clamp(1.5rem, 7vw, 5rem);
+    font-size: clamp(4rem, 7vw, 5rem);
     letter-spacing: 0.125em;
     color: #fff;
 }
@@ -95,4 +95,14 @@ main {
 .reset-btn svg {
     width: 32px;
     fill: #F95454;
+}
+
+@media (max-width: 572px) {
+
+    .counter-wrapper {
+        min-width: 90%;
+    }
+    .count-increase-btn {
+        min-width: 35%;
+    }
 }
