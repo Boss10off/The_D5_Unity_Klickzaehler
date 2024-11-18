@@ -1,9 +1,9 @@
 const cacheName = "DefaultCompany-mci-ag-0.1";
 const contentToCache = [
-    "Build/Build3.loader.js",
-    "Build/Build3.framework.js",
-    "Build/Build3.data",
-    "Build/Build3.wasm",
+    "Build/Build4.loader.js",
+    "Build/Build4.framework.js",
+    "Build/Build4.data",
+    "Build/Build4.wasm",
     "TemplateData/style.css"
 
 ];
