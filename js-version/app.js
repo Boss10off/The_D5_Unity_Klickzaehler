@@ -10,11 +10,12 @@ const increaseBtn = counterWrapper.querySelector('.count-increase-btn') ;
 const catSVG = document.querySelector('.cat-svg') ;
 
 let countTotal = 0;
+let currentCountName = '';
 
 // Fixed name to storage different counters (just like an Enum)
 const counterListNameForLocalStorage = "countersList";
 
-const countersList = [
+let countersList = [
     {
         name: 'cats',
         count: 10
@@ -96,6 +97,10 @@ addNewCounterBtn.addEventListener("click", () => {
     dialog.appendChild(inputsForm);
     overlay.appendChild(dialog);
 
+    if(currentCountName.length > 0) {
+        counterNameInputField.value = currentCountName;
+    } 
+
     inputsForm.addEventListener("submit", (e) => addNewCounter(e, counterNameInputField, overlayElm))
 
     cancelBtn.addEventListener("click", (e) => {
@@ -109,12 +114,33 @@ addNewCounterBtn.addEventListener("click", () => {
 
 function addNewCounter(e, inputField, overlay) {
     e.preventDefault();
+    let found = false;
     const counterName = inputField.value;
+
+    inputField.addEventListener('input', (e) => {
+        counterName = e.target.value;
+    })
+
     if(counterName.length > 0) {
-        countersList.push({
-            name: counterName,
-            count: countTotal
-        });
+        countersList = countersList.map(eachCounter => {
+            if(eachCounter.name === counterName) {
+                found = true;
+                eachCounter = {
+                    name: counterName,
+                    count: countTotal
+                }
+                return eachCounter;
+            }
+            return eachCounter;
+        })
+         
+        if(!found) {
+            countersList.push({
+                name: counterName,
+                count: countTotal
+            })
+        }
+
         localStorage.setItem(counterListNameForLocalStorage, JSON.stringify(countersList));
     }
 
@@ -147,6 +173,7 @@ getSavedCounterBtn.addEventListener('click', () => {
 
 function updateUIWithClickCounter(counterName, counterValue) {
     const newNumber = createElementWithClass('span', 'show');
+    currentCountName = counterName;
     countTotal = parseInt(counterValue);
     newNumber.textContent = (countTotal).toString().padStart(4, '0');
 
