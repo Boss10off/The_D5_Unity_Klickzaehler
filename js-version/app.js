@@ -53,12 +53,18 @@ increaseBtn.addEventListener('click', () => {
     // Append the new number and increment count
     countValueParaElement.appendChild(newNumber);
     catSVG.querySelectorAll('.right-leg').forEach(e => e.classList.add("animate-right-leg"))
+    catSVG.querySelectorAll('.cat-right-ear').forEach(e => e.classList.add("animate-right-ear"))
+    catSVG.querySelectorAll('.cat-left-ear').forEach(e => e.classList.add("animate-left-ear"))
+    catSVG.querySelector('.cat-tail').classList.add('animate-tail');
     countTotal++;
 
     // Clean up old numbers after animation
     setTimeout(() => {
         if (currentNumber) {
             catSVG.querySelectorAll('.right-leg').forEach(e => e.classList.remove("animate-right-leg"))
+            catSVG.querySelectorAll('.cat-right-ear').forEach(e => e.classList.remove("animate-right-ear"))
+            catSVG.querySelectorAll('.cat-left-ear').forEach(e => e.classList.remove("animate-left-ear"))
+            catSVG.querySelector('.cat-tail').classList.remove('animate-tail');
             currentNumber.forEach(e => {
                 e.remove();
             })

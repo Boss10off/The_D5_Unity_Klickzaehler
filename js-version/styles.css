@@ -83,7 +83,7 @@ main {
     transition: background-color 250ms, scale 250ms ease-out;
 }
 
-svg.cat-svg {
+svg.cat-svg, svg.dog-svg {
     width: 120px;
     z-index: 99;
     position: absolute;
@@ -97,6 +97,21 @@ svg path {
 svg .animate-right-leg {
     scale: 1.3;
     transform: translateX(-5px);
+}
+
+svg .animate-tail {
+    scale: 1.1;
+    transform: translate(-4px, -4px);
+}
+
+svg .animate-left-ear {
+    scale: 1.05;
+    transform: translate(-2px, -2px);
+}
+
+svg .animate-right-ear {
+    scale: 1.05;
+    transform: translate(-2px, -2px);
 }
 
 .count-increase-btn:hover {
